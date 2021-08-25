@@ -24,7 +24,7 @@ import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class TesteBatidasService {
+ class TesteBatidasService {
 
     private BatidasService batidasService;
 
@@ -32,13 +32,13 @@ public class TesteBatidasService {
     private BatidasRepository batidasRepository;
 
     @BeforeEach
-    public void setup() {
+     void setup() {
         this.batidasRepository = mock(BatidasRepository.class);
         this.batidasService = new BatidasService(this.batidasRepository);
     }
 
     @Test
-    public void testValidaHorarioJaregistrado() {
+     void testValidaHorarioJaregistrado() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
 
@@ -55,7 +55,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testHorariosRegistradosPorDia() {
+     void testHorariosRegistradosPorDia() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
         List<Momento> listaMomentos = new ArrayList<>();
@@ -68,7 +68,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaQuantidadeDeHorarios() {
+     void testValidaQuantidadeDeHorarios() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
 
@@ -84,7 +84,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaOrdemHorario() {
+     void testValidaOrdemHorario() {
         Momento momentoAnterior = new Momento();
         momentoAnterior.setDataHora("2018-08-22T07:00:00");
 
@@ -100,7 +100,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaMinimoHorarioAlmoco() {
+     void testValidaMinimoHorarioAlmoco() {
         Momento momento = new Momento(), momento1 = new Momento(), momento2 = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
         momento1.setDataHora("2018-08-22T12:00:00");
@@ -121,7 +121,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaCampoObrigatorio(){
+     void testValidaCampoObrigatorio(){
 
         Exception exception = assertThrows(ApiRequestExcept.class, () -> {
             batidasService.validaCampoObrigatorio(null);
@@ -134,7 +134,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaFormatoHorarioException() {
+     void testValidaFormatoHorarioException() {
         Momento momento = new Momento();
         momento.setDataHora("2018");
 
@@ -149,7 +149,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaSabadoException() {
+     void testValidaSabadoException() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-12T08:00:00");
 
@@ -164,7 +164,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaDomingoException() {
+     void testValidaDomingoException() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-13T08:00:00");
 
@@ -179,7 +179,7 @@ public class TesteBatidasService {
     }
 
     @Test
-    public void testValidaHorarioJornadaTrabalho() {
+     void testValidaHorarioJornadaTrabalho() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-14T06:00:00");
 
@@ -194,7 +194,7 @@ public class TesteBatidasService {
         assertEquals(expectedMessage, actualMessage);
     }
 
-    public List<Momento> listaMomentos() {
+     public List<Momento> listaMomentos() {
         Momento momento = new Momento(), momento1 = new Momento(), momento2 = new Momento(),
                 momento3 = new Momento(), momento4 = new Momento();
 

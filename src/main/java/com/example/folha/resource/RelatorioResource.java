@@ -2,7 +2,6 @@ package com.example.folha.resource;
 
 import com.example.folha.dto.RelatorioDTO;
 import com.example.folha.service.RelatorioService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

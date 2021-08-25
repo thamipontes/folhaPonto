@@ -8,14 +8,16 @@
 git commit -am ":nomedoemoji: mensagem" -m "outra mensagem"
 ```
 
+##Como rodar o projeto
+Siga a ordem dos passos listados abaixo
 
-#### SONARQUBE
+#### SONARQUBE e MYSQL
 
 * **Primeiro passo:** instalar o docker-compose.
 
-* **Segundo passo:** Subir o SonarQube com o comando abaixo
+* **Segundo passo:** Subir o SonarQube e o Mysql com o comando abaixo
 ```bash
-docker-compose -f sonarqube-h2.yml up
+docker-compose -f sonarqube-mysql.yml up
 ```
 
 * **Terceiro passo:** Abrir o navegador com a URL localhost:9000
@@ -28,14 +30,24 @@ docker-compose -f sonarqube-h2.yml up
 ```
 
 
-* **Sexto passo:** Para derrubar o SonarQube
+* **Sexto passo:** Caso queira parar o serviço no docker do SonarQube e o Mysql
 ```bash
-docker-compose -f sonarqube-h2.yml down
+docker-compose -f sonarqube-mysql.yml down
+```
+
+#### BUILD
+* Para fazer o build do projeto e rodar todos os test basta digitar no terminal:
+```bash
+./gradlew build
 ```
 
 #### TESTES
-* Para rodar os testes basta colocar o comando no terminal:
+* Para rodar os testes separado basta rodar o comando no terminal:
 ```bash
 ./gradlew test
 ```
+
+#### Subir o Spring Boot
+* Para subir o backend vá até o arquivo FolhaApplication, clique com o botão direito e aperte em:
+Run 'FolhaAplication'
 

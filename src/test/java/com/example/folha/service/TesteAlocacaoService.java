@@ -22,7 +22,7 @@ import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class TesteAlocacaoService {
+class TesteAlocacaoService {
 
     private AlocacoesService alocacoesService;
 
@@ -36,7 +36,7 @@ public class TesteAlocacaoService {
     }
 
     @Test
-    public void testvalidaQuantidadeHoraAlocada() {
+    void testvalidaQuantidadeHoraAlocada() {
         AlocacaoDTO alocacaoDTO = new AlocacaoDTO();
         alocacaoDTO.setDia("2018-08-22");
         alocacaoDTO.setNomeProjeto("ACME Corporation");
@@ -62,14 +62,14 @@ public class TesteAlocacaoService {
         momento1.setDataHora("2018-08-22T09:00:00");
         momento2.setDataHora("2018-08-22T10:00:00");
         momento3.setDataHora("2018-08-22T11:00:00");
-        
+
 
         List<MomentoDTO> listaMomentoDTOs = new ArrayList<>();
         listaMomentoDTOs.add(momento);
         listaMomentoDTOs.add(momento1);
         listaMomentoDTOs.add(momento2);
         listaMomentoDTOs.add(momento3);
-        
+
 
         return listaMomentoDTOs;
 

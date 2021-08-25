@@ -4,7 +4,6 @@ import com.example.folha.dto.AlocacaoDTO;
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.dto.RegistroDTO;
 import com.example.folha.dto.RelatorioDTO;
-import com.example.folha.entity.Alocacao;
 import com.example.folha.entity.Momento;
 import com.example.folha.repository.AlocacoesRepository;
 import com.example.folha.repository.BatidasRepository;
@@ -111,9 +110,9 @@ public class RelatorioService {
         List<MomentoDTO> listaMomentosRegistradosData = this.batidasRepository.findByDate(dataAlocacao);
         List<String> listaApenasHorariosPorDia = new ArrayList<>();
 
-        listaMomentosRegistradosData.forEach((MomentoDTO momentoDTO) -> {
-           listaApenasHorariosPorDia.add(momentoDTO.getDataHora().substring(11, 19));
-        });
+        listaMomentosRegistradosData.forEach((MomentoDTO momentoDTO) ->
+           listaApenasHorariosPorDia.add(momentoDTO.getDataHora().substring(11, 19))
+        );
         return listaApenasHorariosPorDia;
     }
 

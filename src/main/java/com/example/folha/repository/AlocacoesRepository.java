@@ -1,7 +1,6 @@
 package com.example.folha.repository;
 
 import com.example.folha.dto.AlocacaoDTO;
-import com.example.folha.dto.MomentoDTO;
 import com.example.folha.entity.Alocacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
