@@ -7,7 +7,7 @@ public enum Constante {
     MAX_HORARIOS_REGISTRADOS(4),
     ULTIMA_POSICAO_STRING_DATA(10),
     UMA_HORA_SEGUNDO(3600),
-    TOTAL_HORAS_POR_MES(40);
+    TOTAL_HORAS_POR_MES(160);
 
     private int valor;
 

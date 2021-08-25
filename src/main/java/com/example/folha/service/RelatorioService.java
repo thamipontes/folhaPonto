@@ -1,9 +1,12 @@
 package com.example.folha.service;
 
+import com.example.folha.dto.AlocacaoDTO;
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.dto.RegistroDTO;
 import com.example.folha.dto.RelatorioDTO;
+import com.example.folha.entity.Alocacao;
 import com.example.folha.entity.Momento;
+import com.example.folha.repository.AlocacoesRepository;
 import com.example.folha.repository.BatidasRepository;
 import com.example.folha.utils.Constante;
 import com.example.folha.utils.UtilsValidation;
@@ -18,10 +21,14 @@ import java.util.List;
 public class RelatorioService {
     private final BatidasRepository batidasRepository;
     private final BatidasService batidasService;
+    private final AlocacoesRepository alocacoesRepository;
 
-    public RelatorioService(BatidasRepository batidasRepository, BatidasService batidasService) {
+    public RelatorioService(BatidasRepository batidasRepository,
+                            BatidasService batidasService,
+                            AlocacoesRepository alocacoesRepository) {
         this.batidasRepository = batidasRepository;
         this.batidasService = batidasService;
+        this.alocacoesRepository = alocacoesRepository;
     }
 
     public RelatorioDTO listarRelatorio(String mes){
@@ -29,8 +36,10 @@ public class RelatorioService {
         RelatorioDTO relatorioDTO = new RelatorioDTO();
         relatorioDTO.setMes(mes);
         relatorioDTO.setHorasTrabalhadasMes(horasTrabalhadasPorMes(mes).toString());
-//        relatorioDTO.setHorasExcedentesMes(horariosExcedentesPorMes(mes));
+        relatorioDTO.setHorasExcedentesMes(horariosExcedentesPorMes(mes));
+        relatorioDTO.setHorasDevidasMes(horariosDevidosPorMes(mes));
         relatorioDTO.setRegistrosDTO(listaRegistro(mes));
+        relatorioDTO.setAlocacoesDTO(listaAlocacao(mes));
         return relatorioDTO;
     }
 
@@ -56,21 +65,21 @@ public class RelatorioService {
 
 
     public String horariosExcedentesPorMes(String mes){
-        Duration horarioTotalTrabalhadoSemAlmoco = horasTrabalhadasPorMes(mes);
+        Duration horasTrabalhadasPorMes = horasTrabalhadasPorMes(mes);
 
-        if(horarioTotalTrabalhadoSemAlmoco.minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).isNegative()){
-            return horarioTotalTrabalhadoSemAlmoco.minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).toString();
+        if(horasTrabalhadasPorMes.toHours() > Constante.TOTAL_HORAS_POR_MES.getValor()){
+
+            return horasTrabalhadasPorMes.minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).toString();
         }
         return Duration.ZERO.toString();
     }
 
     public String horariosDevidosPorMes(String mes){
-        Duration horarioTotalTrabalhadoSemAlmoco = horasTrabalhadasPorMes(mes);
 
-        if(horarioTotalTrabalhadoSemAlmoco.minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).isNegative()){
-            return Duration.ZERO.toString();
+        if(horasTrabalhadasPorMes(mes).toHours() < Constante.TOTAL_HORAS_POR_MES.getValor()){
+            return horasTrabalhadasPorMes(mes).minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).abs().toString();
         }
-        return horarioTotalTrabalhadoSemAlmoco.minusHours(Constante.TOTAL_HORAS_POR_MES.getValor()).toString();
+        return Duration.ZERO.toString();
     }
 
     private List<MomentoDTO> listaMomentos(String mes) {
@@ -106,5 +115,10 @@ public class RelatorioService {
            listaApenasHorariosPorDia.add(momentoDTO.getDataHora().substring(11, 19));
         });
         return listaApenasHorariosPorDia;
+    }
+
+    private List<AlocacaoDTO> listaAlocacao (String mes){
+        String dataAlocacao = "%" + mes + "%";
+        return alocacoesRepository.findByDate(dataAlocacao);
     }
 }

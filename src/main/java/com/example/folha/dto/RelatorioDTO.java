@@ -15,7 +15,7 @@ public class RelatorioDTO {
     private String horasExcedentesMes;
     private String horasDevidasMes;
     private List<RegistroDTO> registrosDTO;
-    private AlocacaoDTO alocacaoDTO;
+    private List<AlocacaoDTO> alocacoesDTO;
 
 
     public String getMes() {
@@ -58,12 +58,11 @@ public class RelatorioDTO {
         this.registrosDTO = registrosDTO;
     }
 
-    public AlocacaoDTO getAlocacaoDTO() {
-        return alocacaoDTO;
+    public List<AlocacaoDTO> getAlocacoesDTO() {
+        return alocacoesDTO;
     }
 
-
-    public void setAlocacaoDTO(AlocacaoDTO alocacaoDTO) {
-        this.alocacaoDTO = alocacaoDTO;
+    public void setAlocacoesDTO(List<AlocacaoDTO> alocacoesDTO) {
+        this.alocacoesDTO = alocacoesDTO;
     }
 }
