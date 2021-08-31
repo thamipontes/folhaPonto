@@ -25,7 +25,7 @@ public class BatidasResource {
     }
 
     @PostMapping
-    public ResponseEntity<Momento> criarBatida(@Valid @RequestBody MomentoDTO momentoDTO) {
+    public ResponseEntity<Momento> criarBatida(@RequestBody MomentoDTO momentoDTO) {
         this.batidasService.criarMomento(momentoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
