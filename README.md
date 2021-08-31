@@ -51,3 +51,17 @@ docker-compose -f sonarqube-mysql.yml down
 * Para subir o backend vá até o arquivo FolhaApplication, clique com o botão direito e aperte em:
 Run 'FolhaAplication'
 
+
+#### Criar o frontend
+* Instalar o node
+* Rodar o comando pra criar a aplicação React
+
+```bash
+npx create-react-app folha-ponto-frontend
+```
+
+#### Rodar o Frontend
+```bash
+yarn start
+```
+
