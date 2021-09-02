@@ -1,0 +1,114 @@
+#page-login-form {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+
+#page-login-form .page-header .header-content{
+    /* Faz subir o formulário pra dentro do Header */
+    margin-bottom: 6.4rem;
+}
+
+#page-login-form main {
+    background: var(--color-box-base);
+    width: 100%;
+    max-width: 74rem; /*740px*/
+    border-radius: 0.8rem; /*8 px*/
+    /*Sobe a margem, coloca o auto pra deixar centralizado horizontalmente e embaixo 3.2rem
+    para não ficar colocado com o navegador*/
+    margin: -3.2rem auto 3.2rem; 
+    padding-top: 6.4rem;
+    /*Não mostrar nada que fuja desse box*/
+    overflow: hidden;
+}
+
+#page-login-form main fieldset {
+    /* Tirar a bordar que já vem padrão da caixa fieldset que é a externa */
+    border: 0;
+    /* Tira o padding em cima e embaixo e deixa só nas laterais */
+    padding: 0 2.4rem;
+
+}
+
+/* Estilizando os MEUS DADOS */
+#page-login-form main fieldset legend {
+    font: 700 2.4rem Poppins;
+    color: var(--color-text-title);
+    margin-bottom: 2.4rem;   
+    width: 100%;
+    padding-bottom: 1.6rem;
+    /* A linha que separa os meu dados dos campos */
+    border-bottom: 1px solid var(--color-line-in-white);
+
+    /*Coloca prevendo um botão que terá mais tarde*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#page-login-form main footer{
+    /* padding: 2rem 2.4rem;
+    background: var(--color-box-footer); */
+    /* border-top: 1px solid var(--color-line-in-white); */
+    margin-top: 4rem;
+}
+
+
+#page-login-form main footer button {
+    /*Aumenta a largura para o máximo possível*/
+    width: 100%;
+    /* Aumenta a altura*/
+    height: 5.6rem;
+    background: var(--color-secundary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Poppins;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    margin-top: 3.2rem;
+
+}
+
+
+#page-login-form main footer button:hover {
+    background: var(--color-secundary-dark);
+}
+
+
+
+
+@media (min-width: 700px) {
+    #page-login-form {
+        /* Faz o formulário ocupar a tela toda */
+        max-width: 100vw;
+    }
+
+    /* Altera a posição do título e da descrição, caso exista! */
+    #page-login-form .page-header .header-content{
+        margin-bottom: -6.4rem;
+    }
+    #page-login-form main fieldset {
+        padding: 0 6.4rem;
+    }
+  
+    #page-login-form main footer {
+        padding: 4.0rem 6.4rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    #page-login-form main footer button {
+        width: 20rem;
+        margin-top: 0;
+    }
+
+
+} 
