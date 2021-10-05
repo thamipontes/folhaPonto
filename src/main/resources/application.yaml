@@ -1,9 +1,9 @@
 spring:
   datasource:
-    password: ${DATABASE_PASSWORD}
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
+    password: testebanco
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    hibernate.ddl-auto: validate
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: update
     properties.hibernate.jdbc.time_zone: UTC
