@@ -23,7 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/folhas-de-ponto/*").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().permitAll()
+                .and().formLogin().loginPage("https://localhost:3000/login")
+                .permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 
