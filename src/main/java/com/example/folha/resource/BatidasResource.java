@@ -1,6 +1,5 @@
 package com.example.folha.resource;
 
-
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.entity.Momento;
 import com.example.folha.service.BatidasService;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 @RequestMapping("/batidas")
@@ -28,5 +25,4 @@ public class BatidasResource {
         this.batidasService.criarMomento(momentoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
 }

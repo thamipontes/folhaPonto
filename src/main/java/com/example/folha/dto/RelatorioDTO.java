@@ -1,22 +1,19 @@
 package com.example.folha.dto;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 public class RelatorioDTO {
-    
+
     private String mes;
     private String horasTrabalhadasMes;
     private String horasExcedentesMes;
     private String horasDevidasMes;
     private List<RegistroDTO> registrosDTO;
     private List<AlocacaoDTO> alocacoesDTO;
-
 
     public String getMes() {
         return mes;

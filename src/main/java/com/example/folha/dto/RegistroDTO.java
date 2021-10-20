@@ -1,13 +1,13 @@
 package com.example.folha.dto;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegistroDTO {
+
     private String dia;
     private List<String> horarios;
 

@@ -6,12 +6,11 @@ import com.example.folha.entity.Alocacao;
 import com.example.folha.exception.ApiRequestExcept;
 import com.example.folha.repository.AlocacoesRepository;
 import com.example.folha.repository.BatidasRepository;
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 @Service
 public class AlocacoesService {
@@ -43,17 +42,14 @@ public class AlocacoesService {
         String dataAlocacao = "%" + alocacaoDTO.getDia() + "%";
         List<MomentoDTO> listaMomentosRegistrados = this.batidasRepository.findByDate(dataAlocacao);
 
-        if(listaMomentosRegistrados.isEmpty()){
+        if (listaMomentosRegistrados.isEmpty()) {
             throw new ApiRequestExcept("Não há registros de batidas no dia pedido!");
         }
 
         int tamanhoLista = listaMomentosRegistrados.size();
         LocalDateTime primeiroLista = LocalDateTime.parse(listaMomentosRegistrados.get(0).getDataHora());
-        LocalDateTime ultimoLista = LocalDateTime.parse(listaMomentosRegistrados.get(tamanhoLista-1)
-                .getDataHora());
+        LocalDateTime ultimoLista = LocalDateTime.parse(listaMomentosRegistrados.get(tamanhoLista - 1).getDataHora());
 
         return Duration.between(primeiroLista, ultimoLista).getSeconds();
     }
-
-
 }

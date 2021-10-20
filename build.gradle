@@ -1,9 +1,9 @@
 plugins {
-	id "com.diffplug.gradle.spotless" version "$spotlessVersion" apply false
-	id 'io.spring.dependency-management' version "$springDependencyVersion"
-	id 'java'
-	id "org.sonarqube" version "$sonarqubeVersion" apply false
-	id 'org.springframework.boot' version "$springbootVersion"
+    id "com.diffplug.gradle.spotless" version "$spotlessVersion" apply false
+    id 'io.spring.dependency-management' version "$springDependencyVersion"
+    id 'java'
+    id "org.sonarqube" version "$sonarqubeVersion" apply false
+    id 'org.springframework.boot' version "$springbootVersion"
 }
 
 group = 'com.example'
@@ -12,7 +12,7 @@ sourceCompatibility = '1.8'
 
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 apply from: "$rootDir/plugins/jacoco.gradle"
@@ -20,27 +20,23 @@ apply from: "$rootDir/plugins/lint.gradle"
 apply from: "$rootDir/plugins/sonarqube.gradle"
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'mysql:mysql-connector-java'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.mockito:mockito-core:3.11.2'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-	compileOnly 'org.projectlombok:lombok:1.18.20'
-	annotationProcessor 'org.projectlombok:lombok:1.18.20'
-	testCompileOnly 'org.projectlombok:lombok:1.18.20'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.mockito:mockito-core:3.11.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
-
-
-
-

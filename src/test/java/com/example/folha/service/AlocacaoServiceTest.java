@@ -1,5 +1,9 @@
 package com.example.folha.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyString;
+
 import com.example.folha.dto.AlocacaoDTO;
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.exception.ApiRequestExcept;
@@ -14,9 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyString;
 
 @ContextConfiguration(classes = AlocacoesService.class)
 @ExtendWith(SpringExtension.class)
@@ -40,9 +41,12 @@ class AlocacaoServiceTest {
 
         Mockito.when(batidasRepository.findByDate(anyString())).thenReturn(listaMomentoDTOs());
 
-        Exception exception = assertThrows(ApiRequestExcept.class, () -> {
-            alocacoesService.validaQuantidadeHoraAlocada(alocacaoDTO);
-        });
+        Exception exception = assertThrows(
+            ApiRequestExcept.class,
+            () -> {
+                alocacoesService.validaQuantidadeHoraAlocada(alocacaoDTO);
+            }
+        );
 
         String expectedMessage = "Não pode alocar tempo maior que o tempo trabalhado no dia";
         String actualMessage = exception.getMessage();
@@ -51,14 +55,12 @@ class AlocacaoServiceTest {
     }
 
     public List<MomentoDTO> listaMomentoDTOs() {
-        MomentoDTO momento = new MomentoDTO(), momento1 = new MomentoDTO(), momento2 = new MomentoDTO(),
-            momento3 = new MomentoDTO();
+        MomentoDTO momento = new MomentoDTO(), momento1 = new MomentoDTO(), momento2 = new MomentoDTO(), momento3 = new MomentoDTO();
 
         momento.setDataHora("2018-08-22T08:00:00");
         momento1.setDataHora("2018-08-22T09:00:00");
         momento2.setDataHora("2018-08-22T10:00:00");
         momento3.setDataHora("2018-08-22T11:00:00");
-
 
         List<MomentoDTO> listaMomentoDTOs = new ArrayList<>();
         listaMomentoDTOs.add(momento);
@@ -66,10 +68,6 @@ class AlocacaoServiceTest {
         listaMomentoDTOs.add(momento2);
         listaMomentoDTOs.add(momento3);
 
-
         return listaMomentoDTOs;
-
     }
-
-
 }

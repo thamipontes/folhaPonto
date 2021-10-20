@@ -11,7 +11,6 @@ public class AlocacaoDTO {
     private String tempo;
     private String nomeProjeto;
 
-
     public String getDia() {
         return dia;
     }

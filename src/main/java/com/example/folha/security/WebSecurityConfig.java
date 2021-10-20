@@ -19,23 +19,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private ImplementsUserDetailService userDetailService;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/folhas-de-ponto/*").permitAll()
-                .anyRequest().authenticated()
-                .and().formLogin().permitAll()
-                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf()
+            .disable()
+            .authorizeRequests()
+            .antMatchers(HttpMethod.GET, "/folhas-de-ponto/*")
+            .permitAll()
+            .anyRequest()
+            .authenticated()
+            .and()
+            .formLogin()
+            .permitAll()
+            .and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(userDetailService)
-                .passwordEncoder(new BCryptPasswordEncoder());
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception{
+    public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/materialize/**", "/style/**");
     }
-
 }
