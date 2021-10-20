@@ -2,6 +2,8 @@ apply plugin: "com.diffplug.spotless"
 
 spotless {
   java {
+    endWithNewline()
     removeUnusedImports()
+    trimTrailingWhitespace()
   }
 }
