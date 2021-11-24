@@ -9,7 +9,7 @@ public enum Constante {
     UMA_HORA_SEGUNDO(3600),
     TOTAL_HORAS_POR_MES(160);
 
-    private int valor;
+    private final int valor;
 
     Constante(int valor) {
         this.valor = valor;
