@@ -12,7 +12,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,23 +26,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 
-@ExtendWith(MockitoExtension.class)
-@SpringBootTest
- class TesteBatidasService {
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = BatidasService.class)
+class TesteBatidasService {
 
+    @Autowired
     private BatidasService batidasService;
 
-    @Mock
+    @MockBean
     private BatidasRepository batidasRepository;
 
-    @BeforeEach
-     void setup() {
-        this.batidasRepository = mock(BatidasRepository.class);
-        this.batidasService = new BatidasService(this.batidasRepository);
-    }
-
     @Test
-     void testValidaHorarioJaregistrado() {
+    void testValidaHorarioJaregistrado() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
 
@@ -55,7 +54,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testHorariosRegistradosPorDia() {
+    void testHorariosRegistradosPorDia() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
         List<Momento> listaMomentos = new ArrayList<>();
@@ -68,7 +67,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaQuantidadeDeHorarios() {
+    void testValidaQuantidadeDeHorarios() {
         Momento momento = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
 
@@ -84,7 +83,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaOrdemHorario() {
+    void testValidaOrdemHorario() {
         Momento momentoAnterior = new Momento();
         momentoAnterior.setDataHora("2018-08-22T07:00:00");
 
@@ -100,7 +99,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaMinimoHorarioAlmoco() {
+    void testValidaMinimoHorarioAlmoco() {
         Momento momento = new Momento(), momento1 = new Momento(), momento2 = new Momento();
         momento.setDataHora("2018-08-22T08:00:00");
         momento1.setDataHora("2018-08-22T12:00:00");
@@ -121,7 +120,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaCampoObrigatorio(){
+    void testValidaCampoObrigatorio(){
 
         Exception exception = assertThrows(ApiRequestExcept.class, () -> {
             batidasService.validaCampoObrigatorio(null);
@@ -134,7 +133,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaFormatoHorarioException() {
+    void testValidaFormatoHorarioException() {
         Momento momento = new Momento();
         momento.setDataHora("2018");
 
@@ -149,7 +148,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaSabadoException() {
+    void testValidaSabadoException() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-12T08:00:00");
 
@@ -164,7 +163,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaDomingoException() {
+    void testValidaDomingoException() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-13T08:00:00");
 
@@ -179,7 +178,7 @@ import static org.mockito.Mockito.mock;
     }
 
     @Test
-     void testValidaHorarioJornadaTrabalho() {
+    void testValidaHorarioJornadaTrabalho() {
         Momento momento = new Momento();
         momento.setDataHora("2021-06-14T06:00:00");
 
@@ -194,7 +193,7 @@ import static org.mockito.Mockito.mock;
         assertEquals(expectedMessage, actualMessage);
     }
 
-     public List<Momento> listaMomentos() {
+    public List<Momento> listaMomentos() {
         Momento momento = new Momento(), momento1 = new Momento(), momento2 = new Momento(),
                 momento3 = new Momento(), momento4 = new Momento();
 

@@ -3,6 +3,7 @@ package com.example.folha.service;
 import com.example.folha.dto.AlocacaoDTO;
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.exception.ApiRequestExcept;
+import com.example.folha.repository.AlocacoesRepository;
 import com.example.folha.repository.BatidasRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +25,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 
-@ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@ContextConfiguration(classes = AlocacoesService.class)
+@ExtendWith(SpringExtension.class)
 class TesteAlocacaoService {
 
+    @Autowired
     private AlocacoesService alocacoesService;
 
-    @Mock
+    @MockBean
     private BatidasRepository batidasRepository;
 
-    @BeforeEach
-    public void setup() {
-        this.batidasRepository = mock(BatidasRepository.class);
-        this.alocacoesService = new AlocacoesService(this.batidasRepository, null);
-    }
+    @MockBean
+    private AlocacoesRepository alocacoesRepository;
 
     @Test
     void testvalidaQuantidadeHoraAlocada() {
