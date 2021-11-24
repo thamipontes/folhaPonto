@@ -9,7 +9,7 @@ git commit -am ":nomedoemoji: mensagem" -m "outra mensagem"
 ```
   ou 
 ```bash
-gitemoji -c 
+gitmoji -c 
 ```
 
 ##Como rodar o projeto
@@ -17,7 +17,7 @@ Siga a ordem dos passos listados abaixo
 
 #### SONARQUBE e MYSQL
 
-* **Primeiro passo:** instalar o docker-compose.
+* **Primeiro passo:** instalar o docker-compose. (Caso não tenha interesse em usar o docker, vá para a seção [Banco H2](https://github.com/thamipontes/folhaPonto#banco-h2))
 
 * **Segundo passo:** Subir o SonarQube e o Mysql com o comando abaixo
 ```bash
@@ -39,6 +39,34 @@ docker-compose -f sonarqube-mysql.yml up
 docker-compose -f sonarqube-mysql.yml down
 ```
 
+#### BANCO H2
+_Rodando com banco H2 em memória (CASO NÃO QUEIRA USAR O DOCKER)_
+ 
+* **Primeiro passo**: Vá ao arquivo [application.yaml](https://github.com/thamipontes/folhaPonto/blob/main/src/main/resources/application.yaml) 
+tire de comentário a parte que fala sobre h2 (apague os # que estão no início de cada linha):
+
+```yaml
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    password: testebanco
+    url: jdbc:h2:mem:folhaPonto
+    username: sa
+    driver-class-name: org.h2.Driver
+```
+
+* **Segundo passo**: Agora comente a parte que fala sobre o mysql (coloque # no início de cada linha):
+
+```yaml
+#  datasource:
+#    password: testebanco
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
+#    username: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+```
+
 #### BUILD
 * Para fazer o build do projeto e rodar todos os test basta digitar no terminal:
 ```bash
@@ -58,6 +86,7 @@ docker-compose -f sonarqube-mysql.yml down
 #### Subir o Spring Boot
 * Para subir o backend vá até o arquivo FolhaApplication, clique com o botão direito e aperte em:
 Run 'FolhaAplication'
+
 ou
 * Rode pelo bash o comando:
 ```bash
