@@ -25,5 +25,4 @@ public class AlocacoesResource {
         this.alocacoesService.criarAlocacao(alocacaoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
 }

@@ -1,6 +1,7 @@
 package com.example.folha.exception;
 
 public class ApiExp {
+
     private final String mensagem;
 
     public ApiExp(String mensagem) {
@@ -10,5 +11,4 @@ public class ApiExp {
     public String getMensagem() {
         return mensagem;
     }
-
 }

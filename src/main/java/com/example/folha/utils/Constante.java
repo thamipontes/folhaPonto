@@ -1,7 +1,6 @@
 package com.example.folha.utils;
 
 public enum Constante {
-
     INICIO_EXPEDIENTE(7),
     FIM_EXPEDIENTE(22),
     MAX_HORARIOS_REGISTRADOS(4),
