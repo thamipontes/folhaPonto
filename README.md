@@ -7,6 +7,10 @@
 ```bash
 git commit -am ":nomedoemoji: mensagem" -m "outra mensagem"
 ```
+  ou 
+```bash
+gitemoji -c 
+```
 
 ##Como rodar o projeto
 Siga a ordem dos passos listados abaixo
@@ -46,11 +50,19 @@ docker-compose -f sonarqube-mysql.yml down
 ```bash
 ./gradlew test
 ```
+#### Consertar os warnings do Lint automaticamente (Spotless)
+```bash
+./gradlew spotlessApply
+```
 
 #### Subir o Spring Boot
 * Para subir o backend vá até o arquivo FolhaApplication, clique com o botão direito e aperte em:
 Run 'FolhaAplication'
-
+ou
+* Rode pelo bash o comando:
+```bash
+./gradlew bootRun
+```
 
 #### Criar o frontend
 * Instalar o node
