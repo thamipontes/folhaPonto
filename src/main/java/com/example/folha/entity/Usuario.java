@@ -1,9 +1,14 @@
 package com.example.folha.entity;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +20,11 @@ public class Usuario implements UserDetails {
 
     private String nomeCompleto;
     private String senha;
+    private LocalDateTime dataCriacao;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -38,6 +48,22 @@ public class Usuario implements UserDetails {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
