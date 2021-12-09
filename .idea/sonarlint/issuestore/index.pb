@@ -1,0 +1,25 @@
+
+d
+4src/main/java/com/example/folha/dto/RegistroDTO.java,9/2/92a6c17e4dee55bd95367adcd3a2030148c12fe9
+c
+3src/main/java/com/example/folha/dto/MomentoDTO.java,c/5/c5edcebee97ab4a95888758b28bcee8c98cac7d0
+c
+3src/main/java/com/example/folha/entity/Momento.java,e/b/ebcd1cc5b605b534217645b53de39450ddf3fec4
+e
+5src/main/java/com/example/folha/entity/Relatorio.java,d/3/d3889209633059f2a8a0be974b70f7fba3b94615
+q
+Asrc/main/java/com/example/folha/repository/BatidasRepository.java,d/7/d71e838e015a3ecc03ad30756cd97069693ee5eb
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+`
+0src/main/java/com/example/folha/entity/Role.java,0/5/050fc74e37a98316fb3da4f2ee5a9e2a0fa4da8d
+o
+?src/main/java/com/example/folha/security/CorsConfiguration.java,8/5/8529da77609e7f887012b05d4f09ccf6bb825a21
+m
+=src/main/java/com/example/folha/service/RelatorioService.java,f/2/f2fdde038c423cdc435eefa9dbc83710e6f1f06e
+k
+;src/main/java/com/example/folha/service/BatidasService.java,2/e/2e7eb05fa3ee882fabe6986ffd0b62d04874ca04
+e
+5src/main/java/com/example/folha/dto/RelatorioDTO.java,a/0/a052be087aa05103c64b3195af7fe6d3da71a538
+m
+=src/main/java/com/example/folha/service/AlocacoesService.java,c/5/c55970db5571865d55c02ed749311c5e77913371

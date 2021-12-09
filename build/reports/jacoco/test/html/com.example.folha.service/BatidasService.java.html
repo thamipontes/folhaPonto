@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BatidasService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">folha</a> &gt; <a href="index.source.html" class="el_package">com.example.folha.service</a> &gt; <span class="el_source">BatidasService.java</span></div><h1>BatidasService.java</h1><pre class="source lang-java linenums">package com.example.folha.service;
+
+import com.example.folha.dto.MomentoDTO;
+import com.example.folha.entity.Momento;
+import com.example.folha.exception.ApiRequestConflict;
+import com.example.folha.exception.ApiRequestExcept;
+import com.example.folha.exception.ApiRequestForbidden;
+import com.example.folha.repository.BatidasRepository;
+import com.example.folha.utils.Constante;
+import com.example.folha.utils.UtilsValidation;
+import org.springframework.stereotype.Service;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Service
+public class BatidasService {
+
+    private final BatidasRepository batidasRepository;
+
+<span class="nc" id="L24">    public BatidasService(BatidasRepository batidasRepository) {</span>
+<span class="nc" id="L25">        this.batidasRepository = batidasRepository;</span>
+<span class="nc" id="L26">    }</span>
+
+    public void criarMomento(MomentoDTO momentoDTO) {
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(momentoDTO.getDataHora() == null) {</span>
+<span class="nc" id="L30">            throw new ApiRequestExcept(&quot;Campo obrigatório não informado&quot;);</span>
+        }
+<span class="nc" id="L32">        Momento momento = toEntity(momentoDTO);</span>
+<span class="nc" id="L33">            UtilsValidation.validaDados(momento);</span>
+<span class="nc" id="L34">            validaQuantidadeDeHorarios(momento);</span>
+<span class="nc" id="L35">            validaHorarioJaRegistrado(momento);</span>
+<span class="nc" id="L36">            validaOrdemHorario(momento);</span>
+<span class="nc" id="L37">            validaMinimoHorarioAlmoco(momento);</span>
+<span class="nc" id="L38">            this.batidasRepository.save(toEntity(momentoDTO));</span>
+<span class="nc" id="L39">    }</span>
+
+    public Momento toEntity(MomentoDTO momentoDTO){
+<span class="nc" id="L42">        Momento momento = new Momento();</span>
+<span class="nc" id="L43">        momento.setDataHora(momentoDTO.getDataHora());</span>
+<span class="nc" id="L44">        return momento;</span>
+    }
+
+    public void validaHorarioJaRegistrado(Momento momento){
+<span class="nc" id="L48">        boolean existeDataHora = this.batidasRepository.existsByDataHora(momento.getDataHora());</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if(existeDataHora){</span>
+<span class="nc" id="L50">            throw new ApiRequestConflict(&quot;Horário já registrado&quot;);</span>
+        }
+<span class="nc" id="L52">    }</span>
+
+    public void validaQuantidadeDeHorarios(Momento momento){
+<span class="nc" id="L55">        List&lt;Momento&gt; horariosRegistradosPorDia = horariosRegistradosPorDia(momento);</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if(horariosRegistradosPorDia.size() &gt;= Constante.MAX_HORARIOS_REGISTRADOS.getValor()){</span>
+<span class="nc" id="L58">            throw new ApiRequestForbidden(&quot;Apenas 4 horários podem ser registrados por dia&quot;);</span>
+        }
+<span class="nc" id="L60">    }</span>
+
+    public List&lt;Momento&gt; horariosRegistradosPorDia(Momento momento){
+<span class="nc" id="L63">        List&lt;Momento&gt; listaHorariosJaRegistradosTotal = this.batidasRepository.findAll();</span>
+<span class="nc" id="L64">        String parteData = momento.getDataHora().substring(0, Constante.ULTIMA_POSICAO_STRING_DATA.getValor());</span>
+<span class="nc" id="L65">        List&lt;Momento&gt; listaHorariosJaregistradosPorDia = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L67">        listaHorariosJaRegistradosTotal.forEach((Momento data) -&gt; {</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            if(data.getDataHora().substring(0,Constante.ULTIMA_POSICAO_STRING_DATA.getValor()).equals(parteData)){</span>
+<span class="nc" id="L69">                listaHorariosJaregistradosPorDia.add(data);</span>
+            }
+<span class="nc" id="L71">        });</span>
+<span class="nc" id="L72">        return listaHorariosJaregistradosPorDia;</span>
+    }
+
+    public void validaOrdemHorario(Momento momento){
+<span class="nc" id="L76">        List&lt;Momento&gt; horariosRegistradosPorDia = horariosRegistradosPorDia(momento);</span>
+<span class="nc" id="L77">        int tamanhoLista = horariosRegistradosPorDia.size();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if(tamanhoLista != 0){</span>
+<span class="nc" id="L79">            Momento ultimoLista = horariosRegistradosPorDia.get(tamanhoLista-1);</span>
+<span class="nc" id="L80">            LocalDateTime ultimoListahorario = LocalDateTime.parse(ultimoLista.getDataHora());</span>
+<span class="nc" id="L81">            LocalDateTime momentoHorario = LocalDateTime.parse(momento.getDataHora());</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if(!momentoHorario.isAfter(ultimoListahorario)){</span>
+<span class="nc" id="L83">                throw new ApiRequestExcept(&quot;Não pode registrar horários anteriores aos já registrados&quot;);</span>
+            }
+        }
+<span class="nc" id="L86">    }</span>
+
+    public void validaMinimoHorarioAlmoco(Momento momento){
+<span class="nc" id="L89">        List&lt;Momento&gt; horariosRegistradosPorDia = horariosRegistradosPorDia(momento);</span>
+<span class="nc" id="L90">        int tamanhoLista = horariosRegistradosPorDia.size();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        if(tamanhoLista != 0){</span>
+<span class="nc" id="L92">            Momento ultimoLista = horariosRegistradosPorDia.get(tamanhoLista-1);</span>
+<span class="nc" id="L93">            LocalDateTime ultimoListahorario = LocalDateTime.parse(ultimoLista.getDataHora());</span>
+<span class="nc" id="L94">            LocalDateTime momentoHorario = LocalDateTime.parse(momento.getDataHora());</span>
+<span class="nc" id="L95">            if(Duration.between(ultimoListahorario, momentoHorario).getSeconds() &lt;</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                    Constante.UMA_HORA_SEGUNDO.getValor()){</span>
+<span class="nc" id="L97">                throw new ApiRequestForbidden(&quot;Deve haver no mínimo 1 hora de almoço&quot;);</span>
+            }
+        }
+<span class="nc" id="L100">    }</span>
+
+    public void validaCampoObrigatorio(MomentoDTO momentoDTO){
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        if(momentoDTO == null){</span>
+<span class="nc" id="L104">            throw new ApiRequestExcept(&quot;Campo obrigatório não informado&quot;);</span>
+        }
+<span class="nc" id="L106">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
