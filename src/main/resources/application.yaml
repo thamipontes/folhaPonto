@@ -1,8 +1,8 @@
 spring:
   datasource:
-    password: ${DATABASE_PASSWORD}
-    url: ${JAWSDB_URLL}
-    username: ${DATABASE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 #  h2:
