@@ -1,8 +1,8 @@
 spring:
   datasource:
-    password: testebanco
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
-    username: root
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 #  h2:
