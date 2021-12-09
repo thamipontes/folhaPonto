@@ -57,6 +57,15 @@ public class UsuarioResource {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
+    @PostMapping(value = "logout")
+    public ResponseEntity<?> logout(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        if(principal != null){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return null;
+    }
+
     @PutMapping(value = "{login}/change/{role}")
     public ResponseEntity<?> changeRole(@PathVariable String login, @PathVariable Role role){
         Usuario usuario = usuarioService.mudarRole(role, login);
