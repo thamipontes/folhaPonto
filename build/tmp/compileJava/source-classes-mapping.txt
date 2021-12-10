@@ -41,8 +41,8 @@ com/example/folha/security/ImplementsUserDetailService.java
  com.example.folha.security.ImplementsUserDetailService
 com/example/folha/resource/RelatorioResource.java
  com.example.folha.resource.RelatorioResource
-com/example/folha/FolhaApplication.java
- com.example.folha.FolhaApplication
+com/example/folha/exception/ApiRequestExcept.java
+ com.example.folha.exception.ApiRequestExcept
 com/example/folha/utils/Constantes.java
  com.example.folha.utils.Constantes
 com/example/folha/repository/AlocacoesRepository.java
@@ -63,5 +63,5 @@ com/example/folha/exception/ApiRequestConflict.java
  com.example.folha.exception.ApiRequestConflict
 com/example/folha/resource/UsuarioResource.java
  com.example.folha.resource.UsuarioResource
-com/example/folha/exception/ApiRequestExcept.java
- com.example.folha.exception.ApiRequestExcept
+com/example/folha/FolhaApplication.java
+ com.example.folha.FolhaApplication

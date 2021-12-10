@@ -5,8 +5,6 @@ c
 3src/main/java/com/example/folha/dto/MomentoDTO.java,c/5/c5edcebee97ab4a95888758b28bcee8c98cac7d0
 q
 Asrc/main/java/com/example/folha/repository/BatidasRepository.java,d/7/d71e838e015a3ecc03ad30756cd97069693ee5eb
-9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 o
 ?src/main/java/com/example/folha/security/CorsConfiguration.java,8/5/8529da77609e7f887012b05d4f09ccf6bb825a21
 m
@@ -37,3 +35,7 @@ c
 3src/main/java/com/example/folha/entity/Momento.java,e/b/ebcd1cc5b605b534217645b53de39450ddf3fec4
 d
 4src/main/java/com/example/folha/entity/Alocacao.java,d/c/dc6cc5582a386ff1a9ac6a10282e56b6bdddc711
+`
+0src/main/java/com/example/folha/entity/Role.java,0/5/050fc74e37a98316fb3da4f2ee5a9e2a0fa4da8d
+c
+3src/main/java/com/example/folha/entity/Usuario.java,0/a/0a121921c497d196b7f657160c0f1019a5d26b21
