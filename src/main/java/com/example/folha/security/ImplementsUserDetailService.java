@@ -2,11 +2,9 @@ package com.example.folha.security;
 
 import com.example.folha.entity.Usuario;
 import com.example.folha.repository.UsuariosRepository;
-
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,11 +26,10 @@ public class ImplementsUserDetailService implements UserDetailsService {
             .ofNullable(usuariosRepository.findByLogin(login))
             .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
 
-        Set<GrantedAuthority> grantedAuthorities =  new HashSet<>();
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
         grantedAuthorities.add(new SimpleGrantedAuthority(usuario.getRole().name()));
 
         return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
-
     }
 }

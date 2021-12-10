@@ -9,7 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,21 +18,18 @@ public class UsuarioService {
     @Autowired
     private final UsuariosRepository usuariosRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     public UsuarioService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
     }
 
-    public Usuario salvarUsuario(UsuarioDTO usuarioDTO) {
-        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
+    public void salvarUsuario(UsuarioDTO usuarioDTO) {
+        usuarioDTO.setSenha(new BCryptPasswordEncoder().encode(usuarioDTO.getSenha()));
         usuarioDTO.setDataCriacao(LocalDateTime.now());
         usuarioDTO.setRole(Role.ROLE_USER);
 
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario);
-        return usuariosRepository.save(usuario);
+        usuariosRepository.save(usuario);
     }
 
     public Usuario mudarRole(Role novaRole, String login) {

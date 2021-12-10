@@ -19,8 +19,7 @@ repositories {
 apply from: "$rootDir/plugins/jacoco.gradle"
 apply from: "$rootDir/plugins/sonarqube.gradle"
 apply from: "$rootDir/plugins/lint.gradle"
-
-apply plugin: 'liquibase'
+apply plugin: "liquibase"
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'

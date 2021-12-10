@@ -16,8 +16,8 @@ com/example/folha/entity/Relatorio.java
  com.example.folha.entity.Relatorio
 com/example/folha/entity/Momento.java
  com.example.folha.entity.Momento
-com/example/folha/exception/ApiRequestExcept.java
- com.example.folha.exception.ApiRequestExcept
+com/example/folha/repository/UsuariosRepository.java
+ com.example.folha.repository.UsuariosRepository
 com/example/folha/dto/RelatorioDTO.java
  com.example.folha.dto.RelatorioDTO
 com/example/folha/entity/Role.java
@@ -37,12 +37,12 @@ com/example/folha/exception/ApiExp.java
  com.example.folha.exception.ApiExp
 com/example/folha/security/CorsConfiguration.java
  com.example.folha.security.CorsConfiguration
-com/example/folha/dto/RegistroDTO.java
- com.example.folha.dto.RegistroDTO
+com/example/folha/security/ImplementsUserDetailService.java
+ com.example.folha.security.ImplementsUserDetailService
 com/example/folha/resource/RelatorioResource.java
  com.example.folha.resource.RelatorioResource
-com/example/folha/entity/Usuario.java
- com.example.folha.entity.Usuario
+com/example/folha/FolhaApplication.java
+ com.example.folha.FolhaApplication
 com/example/folha/utils/Constantes.java
  com.example.folha.utils.Constantes
 com/example/folha/repository/AlocacoesRepository.java
@@ -53,15 +53,15 @@ com/example/folha/service/RelatorioService.java
  com.example.folha.service.RelatorioService
 com/example/folha/dto/MomentoDTO.java
  com.example.folha.dto.MomentoDTO
-com/example/folha/exception/ApiRequestConflict.java
- com.example.folha.exception.ApiRequestConflict
-com/example/folha/repository/UsuariosRepository.java
- com.example.folha.repository.UsuariosRepository
-com/example/folha/security/ImplementsUserDetailService.java
- com.example.folha.security.ImplementsUserDetailService
-com/example/folha/FolhaApplication.java
- com.example.folha.FolhaApplication
 com/example/folha/service/UsuarioService.java
  com.example.folha.service.UsuarioService
+com/example/folha/entity/Usuario.java
+ com.example.folha.entity.Usuario
+com/example/folha/dto/RegistroDTO.java
+ com.example.folha.dto.RegistroDTO
+com/example/folha/exception/ApiRequestConflict.java
+ com.example.folha.exception.ApiRequestConflict
 com/example/folha/resource/UsuarioResource.java
  com.example.folha.resource.UsuarioResource
+com/example/folha/exception/ApiRequestExcept.java
+ com.example.folha.exception.ApiRequestExcept
