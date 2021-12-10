@@ -1,24 +1,20 @@
+server:
+  port: 8080
+
 spring:
   datasource:
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
-#  datasource:
-#    password: testebanco
-#    url: jdbc:h2:mem:folhaPonto
-#    username: sa
-#    driver-class-name: org.h2.Driver
-
+    password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f
+    url: jdbc:postgresql://ec2-54-204-128-96.compute-1.amazonaws.com:5432/d896qt8l1c4jt8
+    username: ecaswbbgxydexo
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate.ddl-auto: update
     properties:
       hibernate:
         jdbc.time_zone: UTC
-        dialect: org.hibernate.dialect.MySQL5Dialect
-
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default-schema: public
+  liquibase:
+    default-schema: public
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
