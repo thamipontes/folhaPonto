@@ -7,6 +7,7 @@ import com.example.folha.repository.UsuariosRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,23 +20,21 @@ public class UsuarioService {
 
     private final UsuariosRepository usuariosRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     public UsuarioService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
     }
 
 
-    public Usuario salvarUsuario(UsuarioDTO usuarioDTO){
+    public void salvarUsuario(UsuarioDTO usuarioDTO){
 
-        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
+        usuarioDTO.setSenha(new BCryptPasswordEncoder().encode(usuarioDTO.getSenha()));
         usuarioDTO.setDataCriacao(LocalDateTime.now());
         usuarioDTO.setRole(Role.ROLE_USER);
 
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario);
-        return usuariosRepository.save(usuario);
+        usuariosRepository.save(usuario);
 
     }
 

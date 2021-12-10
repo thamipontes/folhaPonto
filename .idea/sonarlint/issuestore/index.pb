@@ -19,14 +19,8 @@ m
 =src/main/java/com/example/folha/service/AlocacoesService.java,c/5/c55970db5571865d55c02ed749311c5e77913371
 y
 Isrc/main/java/com/example/folha/security/ImplementsUserDetailService.java,b/d/bdaffbac3ee0133194b362e5d71d7aed76fa7d84
-k
-;src/main/java/com/example/folha/service/UsuarioService.java,4/b/4b7d49a3b961eae3e7f82240ffe479fd43c8412d
-e
-5src/main/java/com/example/folha/FolhaApplication.java,1/8/180caea181841e4903fc0b869940d578867f4687
 c
 3src/main/java/com/example/folha/dto/UsuarioDTO.java,4/b/4b22c39cecf10756590abe92bfb902fc87009dcd
-o
-?src/main/java/com/example/folha/security/WebSecurityConfig.java,5/5/5505d554ab7c318b8785915af4d834325470f063
 s
 Csrc/main/java/com/example/folha/repository/AlocacoesRepository.java,7/7/77f2cead84d008b0171ec3c314471323ba0cbc56
 r
