@@ -31,8 +31,6 @@ s
 Csrc/main/java/com/example/folha/repository/AlocacoesRepository.java,7/7/77f2cead84d008b0171ec3c314471323ba0cbc56
 r
 Bsrc/main/java/com/example/folha/repository/UsuariosRepository.java,0/f/0f53fae96867e9d4735723a1223c625eb93145d0
-m
-=src/main/java/com/example/folha/resource/UsuarioResource.java,b/7/b719489605e377f924afaee535b92a4dd85836d2
 o
 ?src/main/java/com/example/folha/resource/AlocacoesResource.java,4/d/4d6a4812a687bc8fbdb38c35c0a3452639df33f1
 m
@@ -45,5 +43,3 @@ c
 3src/main/java/com/example/folha/entity/Momento.java,e/b/ebcd1cc5b605b534217645b53de39450ddf3fec4
 d
 4src/main/java/com/example/folha/entity/Alocacao.java,d/c/dc6cc5582a386ff1a9ac6a10282e56b6bdddc711
-c
-3src/main/java/com/example/folha/entity/Usuario.java,0/a/0a121921c497d196b7f657160c0f1019a5d26b21
