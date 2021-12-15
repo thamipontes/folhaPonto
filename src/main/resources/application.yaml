@@ -1,11 +1,9 @@
 server:
-  port: 8080
+  port: 8070
 
 spring:
   datasource:
-    password: ${DATABASE_PASSWORD}
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
+
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate.ddl-auto: update
@@ -18,3 +16,12 @@ spring:
     default-schema: public
     change-log: classpath:db/changelog/db.changelog-master.xml
     enabled: true
+  application:
+    name: spring-cloud-eureka-client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: localhost

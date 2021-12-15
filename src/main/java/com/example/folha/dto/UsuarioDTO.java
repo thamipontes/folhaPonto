@@ -15,6 +15,7 @@ public class UsuarioDTO {
     private String senha;
     private LocalDateTime dataCriacao;
     private Role role;
+    private String email;
 
     public String getLogin() {
         return login;
@@ -54,5 +55,13 @@ public class UsuarioDTO {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
