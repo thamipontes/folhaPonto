@@ -13,7 +13,7 @@ public class UsuarioDTO {
 
     private String nomeCompleto;
     private String senha;
-    private LocalDateTime dataCriacao;
+    private String dataCriacao;
     private Role role;
     private String email;
 
@@ -41,11 +41,7 @@ public class UsuarioDTO {
         this.senha = senha;
     }
 
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
+    public void setDataCriacao(String dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

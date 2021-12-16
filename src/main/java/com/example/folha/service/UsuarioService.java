@@ -24,7 +24,7 @@ public class UsuarioService {
 
     public void salvarUsuario(UsuarioDTO usuarioDTO) {
         usuarioDTO.setSenha(new BCryptPasswordEncoder().encode(usuarioDTO.getSenha()));
-        usuarioDTO.setDataCriacao(LocalDateTime.now());
+        usuarioDTO.setDataCriacao(LocalDateTime.now().toString());
         usuarioDTO.setRole(Role.ROLE_USER);
 
         Usuario usuario = new Usuario();

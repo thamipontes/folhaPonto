@@ -24,7 +24,7 @@ public class Usuario implements UserDetails {
 
     private String nomeCompleto;
     private String senha;
-    private LocalDateTime dataCriacao;
+    private String dataCriacao;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -54,11 +54,11 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-    public LocalDateTime getDataCriacao() {
+    public String getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDateTime dataCriacao) {
+    public void setDataCriacao(String dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

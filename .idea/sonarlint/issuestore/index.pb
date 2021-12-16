@@ -29,9 +29,9 @@ d
 4src/main/java/com/example/folha/entity/Alocacao.java,d/c/dc6cc5582a386ff1a9ac6a10282e56b6bdddc711
 `
 0src/main/java/com/example/folha/entity/Role.java,0/5/050fc74e37a98316fb3da4f2ee5a9e2a0fa4da8d
-c
-3src/main/java/com/example/folha/entity/Usuario.java,0/a/0a121921c497d196b7f657160c0f1019a5d26b21
-C
-sonarqube-mysql.yml,e/5/e5e2d001350bb9ff8d9f418b727c5dda7a284702
 C
 plugins/lint.gradle,4/1/41c8289aded70bea99c6e736fc9ba4e18bb5de43
+r
+Bsrc/main/java/com/example/folha/repository/UsuariosRepository.java,0/f/0f53fae96867e9d4735723a1223c625eb93145d0
+E
+plugins/jacoco.gradle,b/2/b2446cb3631c770834a2da530b6e7b4c4e0751ae
