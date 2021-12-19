@@ -1,5 +1,5 @@
 server:
-  port: 8057
+  port: 8081
 spring:
   datasource:
     password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f
@@ -19,10 +19,15 @@ spring:
     enabled: true
   application:
     name: spring-cloud-eureka-client
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: https://folha-ponto-eureka.herokuapp.com/eureka/
   instance:
     preferIpAddress: true
-    hostname: localhost
+    homePageUrl: https://${eureka.instance.hostName}/
+    home-page-url-path: https://${eureka.instance.hostName}
+    hostname: folha-ponto-eureka.herokuapp.com
+    non-secure-port: 80
+    secure-port: 443

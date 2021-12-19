@@ -1,5 +1,5 @@
 server:
-  port: ${PORT}
+  port: 8081
 spring:
   datasource:
     password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f
@@ -28,6 +28,6 @@ eureka:
     preferIpAddress: true
     homePageUrl: https://${eureka.instance.hostName}/
     home-page-url-path: https://${eureka.instance.hostName}
-    hostname: ${DOMAIN_NAME}
+    hostname: folha-ponto-eureka.herokuapp.com
     non-secure-port: 80
     secure-port: 443

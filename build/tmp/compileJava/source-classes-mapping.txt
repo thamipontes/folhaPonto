@@ -37,8 +37,8 @@ com/example/folha/exception/ApiExp.java
  com.example.folha.exception.ApiExp
 com/example/folha/security/CorsConfiguration.java
  com.example.folha.security.CorsConfiguration
-com/example/folha/FolhaApplication.java
- com.example.folha.FolhaApplication
+com/example/folha/resource/UsuarioResource.java
+ com.example.folha.resource.UsuarioResource
 com/example/folha/resource/RelatorioResource.java
  com.example.folha.resource.RelatorioResource
 com/example/folha/exception/ApiRequestExcept.java
@@ -63,5 +63,5 @@ com/example/folha/dto/UsuarioDTO.java
  com.example.folha.dto.UsuarioDTO
 com/example/folha/service/UsuarioService.java
  com.example.folha.service.UsuarioService
-com/example/folha/resource/UsuarioResource.java
- com.example.folha.resource.UsuarioResource
+com/example/folha/FolhaApplication.java
+ com.example.folha.FolhaApplication
