@@ -1,11 +1,10 @@
 server:
-  port: ${PORT}
-
+  port: 8057
 spring:
   datasource:
-    password: ${DATABASE_PASSWORD}
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
+    password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f
+    url: jdbc:postgresql://ec2-54-204-128-96.compute-1.amazonaws.com:5432/d896qt8l1c4jt8
+    username: ecaswbbgxydexo
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate.ddl-auto: update
@@ -23,7 +22,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI}
   instance:
     preferIpAddress: true
     hostname: localhost
