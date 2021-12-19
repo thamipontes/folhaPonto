@@ -98,6 +98,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../eureka/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.github/workflows/github-actions.yml">
           <value>
             <set />
@@ -339,6 +344,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../mensageria/.github/workflows/pipeline-mensageria.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../mensageria/Procfile">
           <value>
             <set />
           </value>
