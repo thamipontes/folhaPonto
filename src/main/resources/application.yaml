@@ -23,7 +23,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:8761}/eureka/
+      defaultZone: https://folha-ponto-eureka.herokuapp.com/eureka/
   instance:
     preferIpAddress: true
     homePageUrl: https://${eureka.instance.hostName}/
