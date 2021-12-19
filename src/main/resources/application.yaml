@@ -19,10 +19,11 @@ spring:
     enabled: true
   application:
     name: spring-cloud-eureka-client
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI}
+      defaultZone: ${EUREKA_URL:http://localhost:5000}/eureka/
   instance:
     preferIpAddress: true
-    hostname: localhost
+    hostname: ${DOMAIN_NAME}
