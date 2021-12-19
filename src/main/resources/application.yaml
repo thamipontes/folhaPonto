@@ -27,3 +27,4 @@ eureka:
   instance:
     preferIpAddress: true
     hostname: ${DOMAIN_NAME}
+    non-secure-port: 80
