@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${PORT:8081}
 spring:
   datasource:
     password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f

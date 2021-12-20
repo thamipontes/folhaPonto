@@ -433,6 +433,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../mensageria/src/main/java/com/microservice/mensageria/configs/WebConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../mensageria/src/main/java/com/microservice/mensageria/consumers/EmailConsumer.java">
           <value>
             <set />

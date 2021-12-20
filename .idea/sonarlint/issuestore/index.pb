@@ -5,12 +5,8 @@ c
 3src/main/java/com/example/folha/dto/MomentoDTO.java,c/5/c5edcebee97ab4a95888758b28bcee8c98cac7d0
 q
 Asrc/main/java/com/example/folha/repository/BatidasRepository.java,d/7/d71e838e015a3ecc03ad30756cd97069693ee5eb
-o
-?src/main/java/com/example/folha/security/CorsConfiguration.java,8/5/8529da77609e7f887012b05d4f09ccf6bb825a21
 m
 =src/main/java/com/example/folha/service/RelatorioService.java,f/2/f2fdde038c423cdc435eefa9dbc83710e6f1f06e
-k
-;src/main/java/com/example/folha/service/BatidasService.java,2/e/2e7eb05fa3ee882fabe6986ffd0b62d04874ca04
 e
 5src/main/java/com/example/folha/dto/RelatorioDTO.java,a/0/a052be087aa05103c64b3195af7fe6d3da71a538
 m
@@ -35,3 +31,7 @@ r
 Bsrc/main/java/com/example/folha/repository/UsuariosRepository.java,0/f/0f53fae96867e9d4735723a1223c625eb93145d0
 E
 plugins/jacoco.gradle,b/2/b2446cb3631c770834a2da530b6e7b4c4e0751ae
+A
+gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
