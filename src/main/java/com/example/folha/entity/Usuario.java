@@ -1,8 +1,8 @@
 package com.example.folha.entity;
 
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -10,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 public class Usuario implements UserDetails {
@@ -25,6 +25,7 @@ public class Usuario implements UserDetails {
     private String nomeCompleto;
     private String senha;
     private String dataCriacao;
+    private String email;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -56,6 +57,14 @@ public class Usuario implements UserDetails {
 
     public String getDataCriacao() {
         return dataCriacao;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setDataCriacao(String dataCriacao) {

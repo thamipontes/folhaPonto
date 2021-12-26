@@ -2,9 +2,9 @@ server:
   port: ${PORT:8081}
 spring:
   datasource:
-    password: ba8885436ae17fd02917a97904d9779ed0a14b1880f29492685c258079b4d91f
-    url: jdbc:postgresql://ec2-54-204-128-96.compute-1.amazonaws.com:5432/d896qt8l1c4jt8
-    username: ecaswbbgxydexo
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate.ddl-auto: update

@@ -1,7 +1,6 @@
 package com.example.folha.dto;
 
 import com.example.folha.entity.Role;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -10,12 +9,12 @@ import lombok.NoArgsConstructor;
 public class UsuarioDTO {
 
     private String login;
+    private String email;
 
     private String nomeCompleto;
     private String senha;
     private String dataCriacao;
     private Role role;
-    private String email;
 
     public String getLogin() {
         return login;
