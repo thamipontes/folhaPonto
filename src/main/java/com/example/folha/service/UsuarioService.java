@@ -38,7 +38,7 @@ public class UsuarioService {
         Usuario usuario = Optional
             .ofNullable(usuariosRepository.findByLogin(login))
             .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
-            usuario.setRole(Role.ROLE_ADMIN);
+            usuario.setRole(novaRole);
         return this.usuariosRepository.save(usuario);
     }
 }
