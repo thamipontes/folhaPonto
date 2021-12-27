@@ -62,8 +62,8 @@ public class UsuarioResource {
 
     @PutMapping(value = "{login}/change/{role}")
     public ResponseEntity<?> changeRole(@PathVariable String login, @PathVariable Role role) {
-        Usuario usuario = usuarioService.mudarRole(role, login);
 
+        Usuario usuario = usuarioService.mudarRole(role, login);
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 

@@ -18,6 +18,8 @@ public class UsuarioService {
     @Autowired
     private final UsuariosRepository usuariosRepository;
 
+    private static final String NOVA_ROLE = "ROLE_ADMIN";
+
     public UsuarioService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
     }
@@ -36,7 +38,7 @@ public class UsuarioService {
         Usuario usuario = Optional
             .ofNullable(usuariosRepository.findByLogin(login))
             .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
-        usuario.setRole(novaRole);
-        return usuariosRepository.save(usuario);
+            usuario.setRole(Role.ROLE_ADMIN);
+        return this.usuariosRepository.save(usuario);
     }
 }

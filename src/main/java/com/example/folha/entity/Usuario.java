@@ -16,10 +16,11 @@ import java.util.Collections;
 @Entity
 public class Usuario implements UserDetails {
 
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
+    @Id
     private String login;
 
     private String nomeCompleto;

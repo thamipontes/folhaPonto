@@ -3,8 +3,6 @@ d
 4src/main/java/com/example/folha/dto/RegistroDTO.java,9/2/92a6c17e4dee55bd95367adcd3a2030148c12fe9
 c
 3src/main/java/com/example/folha/dto/MomentoDTO.java,c/5/c5edcebee97ab4a95888758b28bcee8c98cac7d0
-q
-Asrc/main/java/com/example/folha/repository/BatidasRepository.java,d/7/d71e838e015a3ecc03ad30756cd97069693ee5eb
 m
 =src/main/java/com/example/folha/service/RelatorioService.java,f/2/f2fdde038c423cdc435eefa9dbc83710e6f1f06e
 e
@@ -19,16 +17,10 @@ o
 ?src/main/java/com/example/folha/resource/AlocacoesResource.java,4/d/4d6a4812a687bc8fbdb38c35c0a3452639df33f1
 m
 =src/main/java/com/example/folha/resource/BatidasResource.java,0/5/05162995bfd9876d29b22a3644d882dc85928ccf
-o
-?src/main/java/com/example/folha/resource/RelatorioResource.java,8/c/8c96aba4946586b89195d1c6396ccc12e0eae0d9
 d
 4src/main/java/com/example/folha/entity/Alocacao.java,d/c/dc6cc5582a386ff1a9ac6a10282e56b6bdddc711
-`
-0src/main/java/com/example/folha/entity/Role.java,0/5/050fc74e37a98316fb3da4f2ee5a9e2a0fa4da8d
 C
 plugins/lint.gradle,4/1/41c8289aded70bea99c6e736fc9ba4e18bb5de43
-r
-Bsrc/main/java/com/example/folha/repository/UsuariosRepository.java,0/f/0f53fae96867e9d4735723a1223c625eb93145d0
 E
 plugins/jacoco.gradle,b/2/b2446cb3631c770834a2da530b6e7b4c4e0751ae
 A
