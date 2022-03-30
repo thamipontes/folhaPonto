@@ -6,6 +6,11 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD}
     url: ${SPRING_DATASOURCE_URL}
     driver-class-name: org.postgresql.Driver
+#  datasource:
+#    password: testebanco
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
+#    username: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate.ddl-auto: update
     properties:

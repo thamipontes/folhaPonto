@@ -48,9 +48,8 @@ com/example/folha/repository/AlocacoesRepository.java
  com.example.folha.repository.AlocacoesRepository
 com/example/folha/exception/ApiRequestForbidden.java
  com.example.folha.exception.ApiRequestForbidden
-com/example/folha/security/WebSecurityConfig.java
- com.example.folha.security.WebSecurityConfig
- com.example.folha.security.WebSecurityConfig$1
+com/example/folha/resource/UsuarioResource.java
+ com.example.folha.resource.UsuarioResource
 com/example/folha/dto/UsuarioDTO.java
  com.example.folha.dto.UsuarioDTO
 com/example/folha/security/CorsConfiguration.java
@@ -59,9 +58,10 @@ com/example/folha/repository/UsuariosRepository.java
  com.example.folha.repository.UsuariosRepository
 com/example/folha/security/ImplementsUserDetailService.java
  com.example.folha.security.ImplementsUserDetailService
-com/example/folha/service/UsuarioService.java
- com.example.folha.service.UsuarioService
 com/example/folha/entity/Usuario.java
  com.example.folha.entity.Usuario
-com/example/folha/resource/UsuarioResource.java
- com.example.folha.resource.UsuarioResource
+com/example/folha/service/UsuarioService.java
+ com.example.folha.service.UsuarioService
+com/example/folha/security/WebSecurityConfig.java
+ com.example.folha.security.WebSecurityConfig
+ com.example.folha.security.WebSecurityConfig$1
