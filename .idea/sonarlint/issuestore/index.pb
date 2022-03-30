@@ -5,8 +5,6 @@ c
 3src/main/java/com/example/folha/dto/MomentoDTO.java,c/5/c5edcebee97ab4a95888758b28bcee8c98cac7d0
 m
 =src/main/java/com/example/folha/service/RelatorioService.java,f/2/f2fdde038c423cdc435eefa9dbc83710e6f1f06e
-y
-Isrc/main/java/com/example/folha/security/ImplementsUserDetailService.java,b/d/bdaffbac3ee0133194b362e5d71d7aed76fa7d84
 s
 Csrc/main/java/com/example/folha/repository/AlocacoesRepository.java,7/7/77f2cead84d008b0171ec3c314471323ba0cbc56
 o

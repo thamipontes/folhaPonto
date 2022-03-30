@@ -39,32 +39,27 @@ docker-compose -f sonarqube-mysql.yml up
 docker-compose -f sonarqube-mysql.yml down
 ```
 
-#### BANCO H2
-_Rodando com banco H2 em memória (CASO NÃO QUEIRA USAR O DOCKER)_
+#### Mudar Banco para o MYSQL
  
 * **Primeiro passo**: Vá ao arquivo [application.yaml](https://github.com/thamipontes/folhaPonto/blob/main/src/main/resources/application.yaml) 
-tire de comentário a parte que fala sobre h2 (apague os # que estão no início de cada linha):
+tire de comentário a parte que fala sobre o MYSQL (apague os # que estão no início de cada linha):
 
 ```yaml
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
   datasource:
     password: testebanco
-    url: jdbc:h2:mem:folhaPonto
-    username: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 ```
 
-* **Segundo passo**: Agora comente a parte que fala sobre o mysql (coloque # no início de cada linha):
 
+* **Segundo passo**: Agora comente a parte que fala sobre o postgres (coloque # no início de cada linha):
 ```yaml
 #  datasource:
-#    password: testebanco
-#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
-#    username: root
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: ${SPRING_DATASOURCE_USERNAME}
+#    password: ${SPRING_DATASOURCE_PASSWORD}
+#    url: ${SPRING_DATASOURCE_URL}
+#    driver-class-name: org.postgresql.Driver
 ```
 
 #### BUILD
@@ -106,3 +101,5 @@ npx create-react-app folha-ponto-frontend
 yarn start
 ```
 
+#Requisições
+Ao fazer as requisições use a porta 8081
