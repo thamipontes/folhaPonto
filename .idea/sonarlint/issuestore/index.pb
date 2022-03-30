@@ -15,8 +15,6 @@ e
 5src/main/java/com/example/folha/utils/Constantes.java,5/8/58ef240042729588bbd41724adb5a7e0cdb4d8a0
 q
 Asrc/main/java/com/example/folha/repository/BatidasRepository.java,d/7/d71e838e015a3ecc03ad30756cd97069693ee5eb
-d
-4src/main/java/com/example/folha/entity/Alocacao.java,d/c/dc6cc5582a386ff1a9ac6a10282e56b6bdddc711
 m
 =src/main/java/com/example/folha/resource/BatidasResource.java,0/5/05162995bfd9876d29b22a3644d882dc85928ccf
 m
@@ -25,8 +23,6 @@ m
 =src/main/java/com/example/folha/resource/UsuarioResource.java,b/7/b719489605e377f924afaee535b92a4dd85836d2
 d
 4src/main/java/com/example/folha/utils/Constante.java,a/6/a693840c899b3c3e2c0f797c3d0c441019a0b5fe
-c
-3src/main/java/com/example/folha/entity/Usuario.java,0/a/0a121921c497d196b7f657160c0f1019a5d26b21
 r
 Bsrc/main/java/com/example/folha/repository/UsuariosRepository.java,0/f/0f53fae96867e9d4735723a1223c625eb93145d0
 p

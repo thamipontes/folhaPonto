@@ -1,30 +1,15 @@
 server:
-  port: ${PORT:8081}
+  port: ${PORT:8080}
 spring:
   datasource:
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    url: ${SPRING_DATASOURCE_URL}
-    driver-class-name: org.postgresql.Driver
-#  datasource:
-#    password: testebanco
-#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
-#    username: root
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: testebanco
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/folhaPonto
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate.ddl-auto: update
-    properties:
-      hibernate:
-        jdbc.time_zone: UTC
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        default-schema: public
-  liquibase:
-    default-schema: public
-    change-log: classpath:db/changelog/db.changelog-master.xml
-    enabled: true
   application:
     name: spring-cloud-eureka-client
-
 eureka:
   client:
     serviceUrl:
