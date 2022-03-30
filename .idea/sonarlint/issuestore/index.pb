@@ -20,8 +20,6 @@ d
 m
 =src/main/java/com/example/folha/resource/BatidasResource.java,0/5/05162995bfd9876d29b22a3644d882dc85928ccf
 m
-=src/main/java/com/example/folha/service/AlocacoesService.java,c/5/c55970db5571865d55c02ed749311c5e77913371
-m
 =src/main/java/com/example/folha/resource/UsuarioResource.java,b/7/b719489605e377f924afaee535b92a4dd85836d2
 d
 4src/main/java/com/example/folha/utils/Constante.java,a/6/a693840c899b3c3e2c0f797c3d0c441019a0b5fe
