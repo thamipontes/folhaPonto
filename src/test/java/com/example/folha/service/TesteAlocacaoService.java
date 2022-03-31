@@ -7,9 +7,9 @@ import static org.mockito.ArgumentMatchers.anyString;
 import com.example.folha.dto.AlocacaoDTO;
 import com.example.folha.dto.MomentoDTO;
 import com.example.folha.exception.ApiRequestExcept;
-import com.example.folha.repository.AlocacoesRepository;
 import com.example.folha.repository.BatidasRepository;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,8 +19,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ContextConfiguration(classes = AlocacoesService.class)
 @ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = AlocacoesService.class)
 class TesteAlocacaoService {
 
     @Autowired
@@ -28,9 +28,6 @@ class TesteAlocacaoService {
 
     @MockBean
     private BatidasRepository batidasRepository;
-
-    @MockBean
-    private AlocacoesRepository alocacoesRepository;
 
     @Test
     void testvalidaQuantidadeHoraAlocada() {
@@ -49,6 +46,28 @@ class TesteAlocacaoService {
         );
 
         String expectedMessage = "Não pode alocar tempo maior que o tempo trabalhado no dia";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    void testvalidaSegunosRegistradosPorDia() {
+        AlocacaoDTO alocacaoDTO = new AlocacaoDTO();
+        alocacaoDTO.setDia("2018-08-22");
+        alocacaoDTO.setNomeProjeto("ACME Corporation");
+        alocacaoDTO.setTempo("PT20H30M0S");
+
+        Mockito.when(batidasRepository.findByDate(anyString())).thenReturn(Collections.emptyList());
+
+        Exception exception = assertThrows(
+                ApiRequestExcept.class,
+                () -> {
+                    alocacoesService.segundosRegistradosPorDia(alocacaoDTO);
+                }
+        );
+
+        String expectedMessage = "Não há registros de batidas no dia pedido!";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
