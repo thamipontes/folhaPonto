@@ -19,7 +19,7 @@ Siga a ordem dos passos listados abaixo
 
 * **Primeiro passo:** instalar o docker-compose.
 
-* **Segundo passo:** Subir o SonarQube e o Mysql com o comando abaixo
+* **Segundo passo:** Subir o SonarQube e o Mysql com o comando abaixo (precisa do docker em pé para subir o projeto!)
 ```bash
 docker-compose -f sonarqube-mysql.yml up
 ```
@@ -33,7 +33,7 @@ docker-compose -f sonarqube-mysql.yml up
 ./gradlew sonarqube
 ```
 
-* **Sexto passo:** Caso queira parar o serviço no docker do SonarQube e o Mysql
+* **Sexto passo:** Caso queira parar o serviço no docker do SonarQube e o Mysql (caso queira subir o projeto, não pare o docker)
 ```bash
 docker-compose -f sonarqube-mysql.yml down
 ```
