@@ -1,6 +1,0 @@
-com/example/folha/service/TestRelatorioService.java
- com.example.folha.service.TestRelatorioService
-com/example/folha/service/TesteBatidasService.java
- com.example.folha.service.TesteBatidasService
-com/example/folha/service/TesteAlocacaoService.java
- com.example.folha.service.TesteAlocacaoService
